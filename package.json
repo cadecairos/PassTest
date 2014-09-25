@@ -1,6 +1,6 @@
 {
   "name": "pass-test",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple password checker",
   "repository": {
     "type": "git",
