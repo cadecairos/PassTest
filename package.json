@@ -1,5 +1,5 @@
 {
-  "name": "PassTest",
+  "name": "pass-test",
   "version": "0.0.1",
   "description": "A simple password checker",
   "main": "index.js",
