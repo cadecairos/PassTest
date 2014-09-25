@@ -15,7 +15,7 @@ var testMap = {
     return password.length <= this.config.maxLength.value;
   },
   commonPasswords: function commonPasswordsTest(password) {
-    return commonPasswordList.indexOf(password) === -1;
+    return commonPasswordList.indexOf(password.toLowerCase()) === -1;
   },
   lowerCase: function lowerCaseTest(password) {
     return password.match(/[a-z]+/) !== null;
@@ -31,7 +31,7 @@ var testMap = {
   },
   userValues: function userValuesTest(password) {
     return this.config.userValues.value.every(function(uv) {
-      return !password.contains(uv);
+      return !password.toLowerCase().contains(uv.toLowerCase());
     });
   }
 };
@@ -80,7 +80,7 @@ module.exports = function PassTest(options) {
     if ( opt.value && opt.value !== config[optName].value  && typeof opt.value === typeof config[optName].value ) {
       config[optName].value = opt.value;
     }
-    testArray.push({
+    opt.enabled && testArray.push({
       fn: testMap[optName].bind(self),
       name: testMap[optName].name
     });
@@ -88,7 +88,7 @@ module.exports = function PassTest(options) {
 
   this.test = function test(password, userValues) {
     var results = {
-      passed:false
+      passed: true
     };
 
     this.config.userValues.value = userValues || [];
