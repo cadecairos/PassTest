@@ -29,7 +29,7 @@ var testMap = {
   numbers: function numbersTest(password) {
     return password.match(/\d+/) !== null;
   },
-  userValues: function userValuesTest(password, arr) {
+  userValues: function userValuesTest(password) {
     return this.config.userValues.value.every(function(uv) {
       return !password.contains(uv);
     });
@@ -66,8 +66,7 @@ module.exports = function PassTest(options) {
       enabled: true
     },
     userValues: {
-      enabled: false,
-      value: []
+      enabled: false
     }
   };
 
@@ -84,10 +83,12 @@ module.exports = function PassTest(options) {
     testArray.push(testMap[optName].bind(self));
   });
 
-  this.test = function test(password) {
+  this.test = function test(password, userValues) {
     var results = {
       passed:false
     };
+
+    this.config.userValues.value = userValues || [];
 
     testArray.forEach(function(test) {
       var testResult = test(password);

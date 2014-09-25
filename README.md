@@ -22,7 +22,7 @@ You can configure pass-test to tweak values or disable some checks
 
 userValues is a custom array of strings you can pass in to see if the password
 matches or contains any of them. Useful for disallowing the account's email or username
-from being counted as a valid password.
+from being counted as a valid password. It is passed as a second arg to `.test()`
 
 ```
 var PassTest = require("PassTest");
@@ -50,8 +50,7 @@ var ptNoSpecialCharCheck = new PassTest({
 // disallow custom userValues
 var ptNoUserValues = new PassTest({
   userValues: {
-    enabled: true,
-    value: ["username", "username@example.com"]
+    enabled: true
   }
 });
 ```
@@ -73,13 +72,13 @@ console.log(resultSet1);
     passed: false,
 
     // individual test results
-    minLength: true,
-    maxLength: true,
-    commonPasswords: false,
-    lowerCase: true,
-    upperCase: false,
-    specialChars: false,
-    numbers: false
+    minLengthTest: true,
+    maxLengthTest: true,
+    commonPasswordsTest: false,
+    lowerCaseTest: true,
+    upperCaseTest: false,
+    specialCharsTest: false,
+    numbersTest: false
   }
 */
 
@@ -91,19 +90,32 @@ console.log(resultSet2);
     passed: true,
 
     // individual test results
-    minLength: true,
-    maxLength: true,
-    commonPasswords: true,
-    lowerCase: true,
-    upperCase: true,
-    specialChars: true,
-    numbers: true
+    minLengthTest: true,
+    maxLengthTest: true,
+    commonPasswordsTest: true,
+    lowerCaseTest: true,
+    upperCaseTest: true,
+    specialCharsTest: true,
+    numbersTest: true
+  }
+*/
+
+var resultSet3 = pt.test("UsernameAsPasword", ["UsernameAsPassword"]);
+console.log(resultSet3);
+/*
+  {
+    passedTest: false,
+    minLengthTest: true,
+    maxLengthTest: true,
+    commonPasswordsTest: true,
+    lowerCaseTest: true,
+    upperCaseTest: true,
+    specialCharsTest: false,
+    numbersTest: false,
+    userValuesTest: false
   }
 */
 ```
-```
-
-
 
 Tests
 =====
