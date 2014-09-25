@@ -11,7 +11,7 @@ var testMap = {
   minLength: function minLengthTest(password) {
     return password.length >= this.config.minLength.value;
   },
-  maxLength: function maxLengthText(password) {
+  maxLength: function maxLengthTest(password) {
     return password.length <= this.config.maxLength.value;
   },
   commonPasswords: function commonPasswordsTest(password) {
