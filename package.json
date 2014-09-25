@@ -2,6 +2,10 @@
   "name": "pass-test",
   "version": "0.0.2",
   "description": "A simple password checker",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cadecairos/PassTest.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "jstest spec/*_spec.js"
