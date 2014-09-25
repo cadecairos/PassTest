@@ -25,7 +25,7 @@ matches or contains any of them. Useful for disallowing the account's email or u
 from being counted as a valid password.
 
 ```
-var PassTest = require("pass-test");
+var PassTest = require("PassTest");
 
 // defaults
 var pt = new PassTest();
@@ -59,7 +59,7 @@ var ptNoUserValues = new PassTest({
 Usage
 =====
 ```
-var PassTest = require("pass-test");
+var PassTest = require("PassTest");
 var pt = new PassTest();
 
 var badPassword = "password";
