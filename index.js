@@ -80,7 +80,10 @@ module.exports = function PassTest(options) {
     if ( opt.value && opt.value !== config[optName].value  && typeof opt.value === typeof config[optName].value ) {
       config[optName].value = opt.value;
     }
-    testArray.push(testMap[optName].bind(self));
+    testArray.push({
+      fn: testMap[optName].bind(self),
+      name: testMap[optName].name
+    });
   });
 
   this.test = function test(password, userValues) {
@@ -91,7 +94,7 @@ module.exports = function PassTest(options) {
     this.config.userValues.value = userValues || [];
 
     testArray.forEach(function(test) {
-      var testResult = test(password);
+      var testResult = test.fn(password);
       results[test.name] = testResult;
       if ( !testResult ) {
         results.passed = false;
