@@ -13,11 +13,10 @@
   "author": "Christopher De Cairos <chris@chrisdecairos.ca>",
   "license": "MIT",
   "devDependencies": {
-    "jstest": "^1.0.5"
+    "code": "^1.4.0",
+    "lab": "^5.10.0"
   },
   "dependencies": {
-    "code": "^1.4.0",
-    "lab": "^5.10.0",
     "owasp-password-strength-test": "^1.2.2"
   }
 }
