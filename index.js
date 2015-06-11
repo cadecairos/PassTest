@@ -1,6 +1,9 @@
 var owasp = require("owasp-password-strength-test");
 var commonPasswordList = require("./lib/10k.js");
 
+// this removes the repeating character required test
+owasp.tests.required.splice(2, 1);
+
 owasp.tests.required.push(function(password) {
   if ( commonPasswordList.indexOf(password) !== -1 ) {
     return "Password is on the 10,000 most commonly used password list";

@@ -101,6 +101,15 @@ experiment('PassTest', function() {
       expect(result.errors.length).to.equal(0);
       done();
     });
+
+    test('allows repeating characters', function(done) {
+      var result = pt.test('ggggolden mmmmmonkey ttttttotem pppppole');
+
+      expect(result.strong).to.be.true();
+      expect(result.isPassphrase).to.be.true();
+      expect(result.errors.length).to.equal(0);
+      done();
+    });
   });
 
   experiment('Custom Config', function() {
