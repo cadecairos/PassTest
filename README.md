@@ -12,7 +12,7 @@ You can configure pass-test to fit your password policy
 |property              |Description                                                                  |Default|
 |----------------------|-----------------------------------------------------------------------------|-------|
 |maxLength             |Maximum password length                                                      |256    |
-|minLength             |Minimum password length                                                      |       |
+|minLength             |Minimum password length                                                      |8      |
 |minPhraseLength       |Minimum length to be considered a passphrase                                 |20     |
 |minOptionalTestsToPass|Passwords must pass at least this many optional tests to be considered strong|3      |
 |allowPassphrases      |If false, passphrases are no longer exempt from optional tests               |true   |
